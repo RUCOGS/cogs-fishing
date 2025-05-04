@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishingTier" load_steps=2 format=3 uid="uid://bosvdubgx5wg"]
+
+[ext_resource type="Script" uid="uid://d1bv3e5wwbjmq" path="res://scripts/fishing_tier.gd" id="1_bsaxd"]
+
+[resource]
+script = ExtResource("1_bsaxd")
+name = "Rare"
+color = Color(0.282288, 0.739241, 0.867188, 1)
+point_scale = 1.5
+probability = 0.5
+bar_size = Vector2(0.3, 0.8)
+score = 30
+metadata/_custom_type_script = "uid://d1bv3e5wwbjmq"

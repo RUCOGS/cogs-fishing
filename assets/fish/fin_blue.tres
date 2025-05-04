@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=4 format=3 uid="uid://c6676qwcwx8hi"]
+
+[ext_resource type="Script" uid="uid://drgy1ad5dph2q" path="res://scripts/fish.gd" id="1_xgu54"]
+[ext_resource type="Texture2D" uid="uid://c42srtaylj4qr" path="res://assets/art/fish/fin_blue.png" id="2_xgu54"]
+[ext_resource type="Resource" uid="uid://o8r3py4uyx4y" path="res://assets/fishing_tiers/epic.tres" id="3_flsn7"]
+
+[resource]
+script = ExtResource("1_xgu54")
+texture = ExtResource("2_xgu54")
+name = "Fin Green Fish"
+description = "A rare double finned fish that's blue."
+tier = ExtResource("3_flsn7")
+metadata/_custom_type_script = "uid://drgy1ad5dph2q"

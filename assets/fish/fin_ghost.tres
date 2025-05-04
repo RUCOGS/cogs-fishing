@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=4 format=3 uid="uid://bhj15c2ce2p2b"]
+
+[ext_resource type="Script" uid="uid://drgy1ad5dph2q" path="res://scripts/fish.gd" id="1_3k04j"]
+[ext_resource type="Texture2D" uid="uid://etj150bt3ci2" path="res://assets/art/fish/fin_ghost.png" id="2_3k04j"]
+[ext_resource type="Resource" uid="uid://eh62ef0apijr" path="res://assets/fishing_tiers/legendary.tres" id="3_3k04j"]
+
+[resource]
+script = ExtResource("1_3k04j")
+texture = ExtResource("2_3k04j")
+name = "Fin Ghost Fish"
+description = "A rare double finned fish that has a ghastly transluscent sheen."
+tier = ExtResource("3_3k04j")
+metadata/_custom_type_script = "uid://drgy1ad5dph2q"

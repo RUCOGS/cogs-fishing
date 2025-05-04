@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishingTier" load_steps=2 format=3 uid="uid://o8r3py4uyx4y"]
+
+[ext_resource type="Script" uid="uid://d1bv3e5wwbjmq" path="res://scripts/fishing_tier.gd" id="1_l71sd"]
+
+[resource]
+script = ExtResource("1_l71sd")
+name = "Epic"
+color = Color(0.602607, 0.289571, 0.861979, 1)
+point_scale = 2.0
+probability = 0.3
+bar_size = Vector2(0.2, 0.5)
+score = 50
+metadata/_custom_type_script = "uid://d1bv3e5wwbjmq"

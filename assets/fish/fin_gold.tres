@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=4 format=3 uid="uid://ql2gn4eyt7un"]
+
+[ext_resource type="Script" uid="uid://drgy1ad5dph2q" path="res://scripts/fish.gd" id="1_1srmc"]
+[ext_resource type="Texture2D" uid="uid://c6hltoyrhj68d" path="res://assets/art/fish/fin_gold.png" id="2_1srmc"]
+[ext_resource type="Resource" uid="uid://bosvdubgx5wg" path="res://assets/fishing_tiers/rare.tres" id="3_oxivj"]
+
+[resource]
+script = ExtResource("1_1srmc")
+texture = ExtResource("2_1srmc")
+name = "Fin Gold Fish"
+description = "A rare double finned fish."
+tier = ExtResource("3_oxivj")
+metadata/_custom_type_script = "uid://drgy1ad5dph2q"

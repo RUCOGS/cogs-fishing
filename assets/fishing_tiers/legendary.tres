@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishingTier" load_steps=2 format=3 uid="uid://eh62ef0apijr"]
+
+[ext_resource type="Script" uid="uid://d1bv3e5wwbjmq" path="res://scripts/fishing_tier.gd" id="1_jau57"]
+
+[resource]
+script = ExtResource("1_jau57")
+name = "Legendary"
+color = Color(0.963542, 0.712776, 0.346273, 1)
+point_scale = 2.5
+probability = 0.2
+bar_size = Vector2(0.1, 0.2)
+score = 100
+metadata/_custom_type_script = "uid://d1bv3e5wwbjmq"

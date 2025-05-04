@@ -1,0 +1,422 @@
+[gd_scene load_steps=31 format=3 uid="uid://mxodgbqso76e"]
+
+[ext_resource type="Script" uid="uid://c3hipy81yhlbs" path="res://scripts/fishing_bar.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://i17f8hvtlbqf" path="res://assets/art/fishing_border.png" id="1_o6xl0"]
+[ext_resource type="Script" uid="uid://d1bv3e5wwbjmq" path="res://scripts/fishing_tier.gd" id="2_0wfyh"]
+[ext_resource type="Resource" uid="uid://eh62ef0apijr" path="res://assets/fishing_tiers/legendary.tres" id="3_sugp2"]
+[ext_resource type="Resource" uid="uid://o8r3py4uyx4y" path="res://assets/fishing_tiers/epic.tres" id="4_tefeu"]
+[ext_resource type="Resource" uid="uid://bosvdubgx5wg" path="res://assets/fishing_tiers/rare.tres" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://cl6l70magtmct" path="res://assets/art/fish_bg.png" id="6_pm3ni"]
+[ext_resource type="Resource" uid="uid://ba80h6iwrglus" path="res://assets/fishing_tiers/common.tres" id="6_tipki"]
+[ext_resource type="Texture2D" uid="uid://s8c80yt5e0xj" path="res://assets/art/fishing_cursor.png" id="8_tipki"]
+[ext_resource type="Texture2D" uid="uid://c3qmjdncfmacb" path="res://assets/art/fish/fat_gold.png" id="9_85g3d"]
+[ext_resource type="Script" uid="uid://ofjxu853umf2" path="res://scripts/fish_get.gd" id="9_eb6dy"]
+[ext_resource type="FontFile" uid="uid://doyte2phtbslb" path="res://assets/fonts/timetwist/Timetwist-Bold.otf" id="10_choun"]
+[ext_resource type="AudioStream" uid="uid://hud4hfm2ndqf" path="res://assets/sfx/fish.wav" id="10_y6deb"]
+[ext_resource type="Resource" uid="uid://cbabruvae0l5c" path="res://assets/fish/fat_gold.tres" id="11_jbj1t"]
+[ext_resource type="FontFile" uid="uid://bq8rayre3b7hh" path="res://assets/fonts/Wendy-Neue.ttf" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://drgy1ad5dph2q" path="res://scripts/fish.gd" id="12_eb6dy"]
+[ext_resource type="Resource" uid="uid://dfuuplmm34tgl" path="res://assets/fish/fat_green.tres" id="12_muem4"]
+[ext_resource type="Resource" uid="uid://bhj15c2ce2p2b" path="res://assets/fish/fin_ghost.tres" id="13_dp3eg"]
+[ext_resource type="Resource" uid="uid://ql2gn4eyt7un" path="res://assets/fish/fin_gold.tres" id="14_0ld40"]
+[ext_resource type="Resource" uid="uid://c6676qwcwx8hi" path="res://assets/fish/fin_blue.tres" id="14_a8y0u"]
+[ext_resource type="Resource" uid="uid://drjukvlae7cg4" path="res://assets/fish/fin_green.tres" id="15_gqmmt"]
+[ext_resource type="Script" uid="uid://dk4xvii1mmmjj" path="res://scripts/fish_manager.gd" id="15_jkv2x"]
+[ext_resource type="Script" uid="uid://deuhxkurpx2qr" path="res://scripts/fish_settings.gd" id="16_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://c5sl6ervm0mwb" path="res://assets/music/WEBFISHING OST - Fuibi.mp3" id="23_pm3ni"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tipki"]
+texture = ExtResource("1_o6xl0")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85g3d"]
+texture = ExtResource("8_tipki")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_eb6dy"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 0),
+"points": PackedFloat32Array(20, -0.0333333, 10.9, 0.0333333, -10.9, 0, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 0),
+"points": PackedFloat32Array(0, -0.0666667, -0.434233, 0.0666667, 0.434233, 1, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_a8y0u"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_trceg"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(0, -0.0666667, -23.1321, 0.0666667, 23.1321, 32, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(1, -0.0333333, 0.506923, 0.0333333, -0.506923, 0, -0.075, 0, 0.075, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trceg"]
+_data = {
+&"RESET": SubResource("Animation_a8y0u"),
+&"hide": SubResource("Animation_trceg"),
+&"show": SubResource("Animation_eb6dy")
+}
+
+[node name="Main" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1360, 34)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.168627, 0.266667, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="FishingBar" type="PanelContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer" node_paths=PackedStringArray("_base_ui", "_segments_container", "_fishing_cursor", "_fish_settings")]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_tipki")
+script = ExtResource("1_o5qli")
+fishing_segments_range = Vector2i(3, 10)
+cursor_speed = 320.0
+_base_ui = NodePath("../../..")
+_segments_container = NodePath("VBoxContainer")
+_fishing_cursor = NodePath("Control")
+_fishing_cursor_offset = Vector2(0, -8)
+_fish_settings = NodePath("../../../../../FishSettings")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/FishingBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/FishingBar/VBoxContainer"]
+custom_minimum_size = Vector2(5, 512)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/FishingBar"]
+layout_mode = 2
+
+[node name="FishCursor" type="Panel" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/FishingBar/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_85g3d")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 48
+text = "90"
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreTitleLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_choun")
+text = "Score:"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_choun")
+text = "100"
+
+[node name="Control" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="FishGet" type="Control" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control" node_paths=PackedStringArray("_animation_player", "_name_label", "_description_label", "_texture_rect", "_fish_container", "_fish_vbox", "_bg_texture", "_points_label")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+script = ExtResource("9_eb6dy")
+_animation_player = NodePath("FishContainer/FishVBox/AnimationPlayer")
+_name_label = NodePath("FishContainer/FishVBox/NameLabel")
+_description_label = NodePath("FishContainer/FishVBox/DescriptionLabel")
+_texture_rect = NodePath("FishContainer/FishVBox/Control/TextureRect")
+_fish_container = NodePath("FishContainer")
+_fish_vbox = NodePath("FishContainer/FishVBox")
+_bg_texture = NodePath("FishContainer/FishVBox/Control/BGTextureRect")
+_points_label = NodePath("FishContainer/FishVBox/PointsLabel")
+
+[node name="FishContainer" type="Control" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_vertical = 2
+
+[node name="FishVBox" type="VBoxContainer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -146.0
+offset_right = 150.0
+offset_bottom = 146.0
+grow_vertical = 2
+
+[node name="FishGetLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 16
+text = "fish get!"
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox"]
+custom_minimum_size = Vector2(144, 156)
+layout_mode = 2
+
+[node name="BGTextureRect" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox/Control"]
+modulate = Color(1, 1, 1, 0.556863)
+custom_minimum_size = Vector2(144, 144)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_pm3ni")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox/Control"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_85g3d")
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 16
+text = "goldfish"
+
+[node name="DescriptionLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ya4ey")
+theme_override_font_sizes/font_size = 16
+text = "this is a tiny goldfish ths dasdfas asd f asdfasdfsd"
+autowrap_mode = 3
+
+[node name="PointsLabel" type="Label" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 16
+text = "+200"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet/FishContainer/FishVBox"]
+libraries = {
+&"": SubResource("AnimationLibrary_trceg")
+}
+
+[node name="OverlayUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OverlayUI"]
+layout_mode = 1
+offset_right = 76.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/OverlayUI/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ya4ey")
+text = "Restart"
+
+[node name="FishManager" type="Node" parent="." node_paths=PackedStringArray("fishing_bar", "fish_get", "restart_button", "fish_settings", "score_label", "fish_sfx", "time_label")]
+script = ExtResource("15_jkv2x")
+initial_cursor_speed = 500.0
+cursor_speedup = 10.0
+fishing_bar = NodePath("../CanvasLayer/UI/HBoxContainer/HBoxContainer/FishingBar")
+fish_get = NodePath("../CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control/FishGet")
+restart_button = NodePath("../CanvasLayer/OverlayUI/MarginContainer/RestartButton")
+fish_settings = NodePath("../FishSettings")
+score_label = NodePath("../CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2/ScoreLabel")
+fish_sfx = NodePath("FishSFX")
+time_label = NodePath("../CanvasLayer/UI/HBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/TimeLabel")
+
+[node name="FishSFX" type="AudioStreamPlayer" parent="FishManager"]
+stream = ExtResource("10_y6deb")
+
+[node name="FishSettings" type="Node" parent="."]
+script = ExtResource("16_jbj1t")
+fishes = Array[ExtResource("12_eb6dy")]([ExtResource("11_jbj1t"), ExtResource("12_muem4"), ExtResource("14_a8y0u"), ExtResource("13_dp3eg"), ExtResource("14_0ld40"), ExtResource("15_gqmmt")])
+tiers = Array[ExtResource("2_0wfyh")]([ExtResource("6_tipki"), ExtResource("4_tefeu"), ExtResource("3_sugp2"), ExtResource("5_o6xl0")])
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_pm3ni")
+autoplay = true

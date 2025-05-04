@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=4 format=3 uid="uid://dfuuplmm34tgl"]
+
+[ext_resource type="Script" uid="uid://drgy1ad5dph2q" path="res://scripts/fish.gd" id="1_5sihc"]
+[ext_resource type="Texture2D" uid="uid://b74slw21xax1p" path="res://assets/art/fish/fat_green.png" id="2_5sihc"]
+[ext_resource type="Resource" uid="uid://bosvdubgx5wg" path="res://assets/fishing_tiers/rare.tres" id="3_5sihc"]
+
+[resource]
+script = ExtResource("1_5sihc")
+texture = ExtResource("2_5sihc")
+name = "Fat Green Fish"
+description = "More rare than the fat gold fish."
+tier = ExtResource("3_5sihc")
+metadata/_custom_type_script = "uid://drgy1ad5dph2q"

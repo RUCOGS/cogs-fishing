@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishingTier" load_steps=2 format=3 uid="uid://ba80h6iwrglus"]
+
+[ext_resource type="Script" uid="uid://d1bv3e5wwbjmq" path="res://scripts/fishing_tier.gd" id="1_esxqw"]
+
+[resource]
+script = ExtResource("1_esxqw")
+name = "Common"
+color = Color(0.473958, 0.473958, 0.473958, 1)
+point_scale = 1.0
+probability = 0.6
+bar_size = Vector2(0.5, 1)
+score = 10
+metadata/_custom_type_script = "uid://d1bv3e5wwbjmq"
