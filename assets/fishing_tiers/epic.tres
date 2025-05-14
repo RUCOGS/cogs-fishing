@@ -9,5 +9,5 @@ color = Color(0.602607, 0.289571, 0.861979, 1)
 point_scale = 2.0
 probability = 0.3
 bar_size = Vector2(0.2, 0.5)
-score = 50
+score = 100
 metadata/_custom_type_script = "uid://d1bv3e5wwbjmq"

@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 		# Stop when the time is over
 		return
 	
-	if not showing_fish and Input.is_action_just_pressed("ui_accept"):
+	if not showing_fish and Input.is_action_just_pressed("fish"):
 		fishing_bar.is_paused = true
 		var fish_tier = fishing_bar.get_segment_at_cursor().tier
 		var fishes = fish_settings.get_fishes_of_tier(fish_tier)

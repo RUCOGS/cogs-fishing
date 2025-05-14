@@ -6,5 +6,5 @@ extends Node
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("fish"):
 		fish_get.show_fish(fish)
